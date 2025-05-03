@@ -36,7 +36,7 @@ const Result = () => {
       <h2 className='text-2xl font-bold text-gray-800 text-center z-10'>
         We Are Married Now 😁
       </h2>
-      <img src={marriedImg} className='w-full h-52 object-contain z-10' alt="married" />
+      <img src={marriedImg} className='w-full h-52 object-contain z-10' alt="image" />
     </div>
   );
 };
