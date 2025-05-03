@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { IoFingerPrintSharp } from "react-icons/io5";
 import Result from './components/result';
 
 const App = () => {
   const [isComplete, setIsComplete] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
+  const timerRef = useRef(null);
 
-  const handleFingerprintClick = () => {
+  const handlePressStart = () => {
     setIsPressed(true);
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setIsComplete(true);
-    }, 1000);
+    }, 1000); // Hold duration in ms
+  };
+
+  const handlePressEnd = () => {
+    setIsPressed(false);
+    clearTimeout(timerRef.current);
   };
 
   return (
@@ -20,11 +26,15 @@ const App = () => {
           !isComplete && (
             <div className='flex flex-col items-center gap-10'>
               <h2 className='text-pink-600 text-xl font-bold'>Place Your Finger</h2>
-              <IoFingerPrintSharp 
+              <IoFingerPrintSharp
                 className={`text-8xl cursor-pointer transition-all duration-300 
                   ${isPressed ? 'text-pink-500 drop-shadow-lg scale-110' : 'text-gray-800 hover:text-pink-600'}
                 `}
-                onClick={handleFingerprintClick}
+                onMouseDown={handlePressStart}
+                onMouseUp={handlePressEnd}
+                onMouseLeave={handlePressEnd}
+                onTouchStart={handlePressStart}
+                onTouchEnd={handlePressEnd}
               />
             </div>
           )
@@ -32,7 +42,6 @@ const App = () => {
         {
           isComplete && <Result />
         }
-
       </div>
       <div className='fixed left-1/2 -translate-x-[50%] bottom-3 text-xs'>
         Designed By
