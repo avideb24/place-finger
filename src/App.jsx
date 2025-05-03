@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Result from './components/result';
 import { IoFingerPrintSharp } from "react-icons/io5";
+import Result from './components/result';
 
 const App = () => {
   const [isComplete, setIsComplete] = useState(false);
