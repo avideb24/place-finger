@@ -12,7 +12,6 @@ const Result = () => {
     const playMusic = () => {
       if (audioRef.current) {
         audioRef.current.play().catch((e) => {
-          // in case autoplay is blocked, fallback can be added here
           console.log('Autoplay blocked:', e);
         });
       }
