@@ -23,6 +23,7 @@ const Result = () => {
 
   return (
     <div className='flex flex-col items-center gap-5 relative'>
+      {/* Background animation */}
       <div className='absolute w-full h-full left-0 top-0 z-0'>
         <Lottie animationData={animation} />
       </div>
