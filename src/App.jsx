@@ -43,8 +43,6 @@ const App = () => {
         )}
         {isComplete && <Result />}
       </div>
-
-      {/* u[dated] */}
       <div className="fixed left-1/2 -translate-x-[50%] bottom-3 text-xs">
         Designed By
         <a
