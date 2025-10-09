@@ -22,6 +22,7 @@ const App = () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-white">
       <div>
+        {/* updated */}
         {!isComplete && (
           <div className="flex flex-col items-center gap-10">
             <h2 className="text-pink-600 text-xl font-bold">Touch & Hold</h2>
